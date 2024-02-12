@@ -1,16 +1,18 @@
 def main():
-    math = input("What is the equation?")
-    x, y, z = math.split(" ")
-
-    match math:
-        case "x + y":
-            print(x, y, z)
-        case "x - y":
-            print(x - z)
-        case "x/y":
-            print(x / y)
-        case "x * y":
-            print(x * y)
+    expression = input("Enter the equation")
+    x, y, z = expression.split(" ")
+    x = float(x)
+    z = float(z)
+    if y == ("+"):
+        print(x + z)
+    elif y == ("-"):
+        print(x - z)
+    elif y == ("/"):
+        print(x / z)
+    elif y == ("*"):
+        print(x * z)
+    else:
+        print("Invalid operator")
 
 
 main()
