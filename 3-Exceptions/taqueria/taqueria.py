@@ -19,6 +19,6 @@ while True:
         if user in dict:
             sum += dict[user]
             out = format(sum, ".2f")
-        print(f"Total: {out}$")
+        print(f"Total: ${out}")
     except EOFError:
         break
