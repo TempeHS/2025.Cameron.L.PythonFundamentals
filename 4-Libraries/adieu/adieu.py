@@ -1,11 +1,12 @@
 import inflect
 
 p = inflect.engine()
-array_1 = []
+array = []
 while True:
     try:
-        user = input("Enter names")
-        name = array_1.append(user)
-        print(f"Adieu, adieu, to {p.join(name)}")
+        array.append(input())
     except EOFError:
         break
+
+output = p.join(array)
+print(f"Adieu, adieu, to {output}")
