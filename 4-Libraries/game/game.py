@@ -2,9 +2,16 @@ import random
 
 user_input = int(input("Level:"))
 while True:
-    user = user_input + 1
+    if user_input < 0:
+        print("Invalid")
+        break
+    if not user_input.isdigit:
+        print("Invalid")
+        break
+
+while True:
     user_output = int(input("Guess:"))
-    ai_guesser = random.randint(0, user)
+    ai_guesser = random.randint(1, user_input)
     if user_output < ai_guesser:
         print("Too small!")
     elif user_output > ai_guesser:
@@ -14,6 +21,3 @@ while True:
         break
     else:
         print("Wrong")
-
-    if user_input or user < 0:
-        print("Invalid")
