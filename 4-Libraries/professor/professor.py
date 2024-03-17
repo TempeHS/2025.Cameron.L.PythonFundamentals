@@ -2,9 +2,6 @@ import random
 
 
 def main():
-    X = int
-    Y = int
-    X, Y = X + Y
 
 
 def get_level():
