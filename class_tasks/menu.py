@@ -10,7 +10,5 @@ while True:
         print("What else would you like?")
     elif user_input == 2:
         print("What else would you like?")
-    elif user_input == 3:
-        break
     else:
         break
