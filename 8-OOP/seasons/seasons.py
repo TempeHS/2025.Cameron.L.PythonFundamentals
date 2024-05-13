@@ -1,5 +1,8 @@
-from datetime import date
+import datetime
 import sys
+import inflect
+
+p = inflect.engine()
 
 
 class DOB:
@@ -10,32 +13,25 @@ class DOB:
 
 
 def get_DOB():
-    input("Enter date of birth \n" "In YYYY-MM-DD format")
+    DOBS = input("Enter date of birth \n" "In YYYY-MM-DD format: ")
+    YYYY, MM, DD = DOBS.split("-")
+    return DOB(int(YYYY), int(MM), int(DD))
 
 
-def inmin():
-    today = date.today()
-    user_day = datetime.date(get_DOB())
-    DOB_today = date._sub_(today, user_day)
-    if DOB_today <= 0:
+def inmin(DOB):
+    today = datetime.datetime.now()
+    user_day = datetime.datetime(DOB.year, DOB.month, DOB.day)
+    age_in_min = round((today - user_day).total_seconds() / 60)
+    if age_in_min <= 0:
         return "Invalid date"
-        raise ValueError
-        sys.exit
-    timedelta(DOB_today)
-
-
-def timedelta():
-    timedelta(
-        days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0
-    )
+        sys.exit()
+    return p.number_to_words(age_in_min)
 
 
 def main():
-
-    DOB = get_DOB
-    print(DOB)
-    DOBS = inmin()
-    print(DOBS)
+    dob = get_DOB()
+    test = inmin(dob)
+    print("Age in minutes:", test)
 
 
 if __name__ == "__main__":
