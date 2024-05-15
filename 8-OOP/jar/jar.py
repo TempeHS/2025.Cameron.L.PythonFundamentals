@@ -1,40 +1,37 @@
-from jar import Jar
-
 class Jar:
     def __init__(self, capacity=12):
-    if capacity < 0: 
-		raise ValueError
-    def __str__(self):
+        self.capacity = capacity
+        self.cookies = 0
 
+    def __str__(self):
+        return self.cookies * "🍪"
 
     def deposit(self, n):
+        self.cookies += n
+        if n > 12:
+            raise ValueError("Too many cookies")
+        return n
 
     def withdraw(self, n):
+        self.cookies -= n
+        if n < 0:
+            raise ValueError("No cookies in jar")
+        return n
 
-    @property
     def capacity(self):
+        return self.cookies
 
-
-    @property
     def size(self):
+        return self.cookies
 
 
-    def test_init():
-    
+def main():
+
+    jar = Jar()
+    jar.deposit(12)
+    jar.withdraw(1)
+    print(jar)
 
 
-def test_str():
-	jar = Jar()
-	assert str(jar) == ""
-	jar.deposit(1)
-	assert str(jar) == "🍪"
-	jar.deposit(11)
-	assert str(jar) == "🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪"
-
-
-def test_deposit():
-	...
-
-
-def test_withdraw():
-	...
+if __name__ == "__main__":
+    main()
